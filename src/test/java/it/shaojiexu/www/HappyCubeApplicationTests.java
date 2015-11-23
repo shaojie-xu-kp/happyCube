@@ -32,12 +32,20 @@ public class HappyCubeApplicationTests {
 	}
 	
 	@Test
-	public void testAddPieceToBorad(){
+	public void testBuildCube(){
 		
-//		int[][] board = new int[17][13];
 		Cube cubeBlue = cubeFactory.getCube("blue");
-		Util.printTwoDimentionalArray(cubeBlue.getPiece1());
-		Util.printTwoDimentionalArray(cubeService.buildCube(cubeBlue));
+		this.cubeService.buildCube(cubeBlue);
+	}
+	
+	
+	public void testArrayRotate(){
+		Cube cubeBlue = cubeFactory.getCube("blue");
+		Util.printTwoDimentionalArray(cubeBlue.getPiece3());
+		System.out.println("***rotate****");
+		Util.printTwoDimentionalArray(Util.rotate(cubeBlue.getPiece3()));
+		System.out.println("***flip****");
+		Util.printTwoDimentionalArray(Util.flip(cubeBlue.getPiece3()));
 	}
 
 }
