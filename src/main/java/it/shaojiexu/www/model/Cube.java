@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Cube {
 	
-	private Map<String, int[][]> pieces = new HashMap<>();
+	private Map<Character, int[][]> pieces = new HashMap<>();
 	
 	private int[][] piece1 = new int[5][];
 	
@@ -78,7 +78,7 @@ public class Cube {
 		this.piece6 = piece6;
 	}
 
-	public Map<String, int[][]> getPieces() {
+	public Map<Character, int[][]> getPieces() {
 		
 		if(this.pieces.size() != 6) {
 			loadPieces();
@@ -88,16 +88,16 @@ public class Cube {
 	}
 
 	private void loadPieces() {
-		this.pieces.put("piece1", piece1);
-		this.pieces.put("piece2", piece2);
-		this.pieces.put("piece3", piece3);
-		this.pieces.put("piece4", piece4);
-		this.pieces.put("piece5", piece5);
-		this.pieces.put("piece6", piece6);
+		this.pieces.put('1', piece1);
+		this.pieces.put('2', piece2);
+		this.pieces.put('3', piece3);
+		this.pieces.put('4', piece4);
+		this.pieces.put('5', piece5);
+		this.pieces.put('6', piece6);
 		
 	}
 
-	public void setPieces(Map<String, int[][]> pieces) {
+	public void setPieces(Map<Character, int[][]> pieces) {
 		this.pieces = pieces;
 	}
 	

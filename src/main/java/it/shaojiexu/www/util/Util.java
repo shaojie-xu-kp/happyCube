@@ -1,5 +1,7 @@
 package it.shaojiexu.www.util;
 
+import java.util.List;
+
 public class Util {
 	
 	public static void printTwoDimentionalArray(int[][] array){
@@ -9,9 +11,9 @@ public class Util {
 		for(int i = 0 ; i < array.length; i++) {
 			for(int j = 0; j < array[i].length; j++) {
 				if(array[i][j] == 0) {
-					stf.append(array[i][j]);
+					stf.append(" ");
 				}else{
-					stf.append(array[i][j]);
+					stf.append("O");
 				}
 			}
 			stf.append("\n");
@@ -47,5 +49,21 @@ public class Util {
 		}
 		return ret;
 	}
+	
+	public static void permutate(String s, List<String> perms) {
+		permutate("", s, perms);
+	}
+
+	private static void permutate(String prefix, String s, List<String> perms) {
+		int N = s.length();
+		if (N == 0)
+			perms.add(prefix);
+		else {
+			for (int i = 0; i < N; i++)
+				permutate(prefix + s.charAt(i), s.substring(0, i) + s.substring(i + 1, N), perms);
+		}
+
+	}
+
 
 }

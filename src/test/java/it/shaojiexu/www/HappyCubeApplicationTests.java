@@ -5,6 +5,9 @@ import it.shaojiexu.www.model.CubeFactory;
 import it.shaojiexu.www.service.CubeService;
 import it.shaojiexu.www.util.Util;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,32 +23,32 @@ public class HappyCubeApplicationTests {
 	
 	@Autowired
 	CubeFactory cubeFactory;
-	
-	
-
-	@Test
-	public void contextLoads() {
-	}
-	
-	@Test
-	public void testSolutionToString(){
-	}
-	
+		
 	@Test
 	public void testBuildCube(){
-		
+//		int[][] board = new int[20][15];
 		Cube cubeBlue = cubeFactory.getCube("blue");
+//		this.cubeService.putPiece(cubeBlue.getPiece1(), 1, 1, board);
+//		this.cubeService.putPiece(Util.rotate(cubeBlue.getPiece2()), 5, 1, board);
+//		this.cubeService.putPiece(cubeBlue.getPiece3(), 6, 1, board);
+//		this.cubeService.putPiece(cubeBlue.getPiece6(), 2, 1, board);
+//		int[][] pieces4Rotated = Util.rotate(Util.rotate(Util.rotate(Util.flip(cubeBlue.getPiece4()))));
+//		this.cubeService.putPiece(pieces4Rotated, 4, 1, board);
+//		int[][] pieces5Rotated = Util.rotate(Util.rotate(Util.flip(cubeBlue.getPiece5())));
+//		this.cubeService.putPiece(pieces5Rotated, 3, 1, board);
 		this.cubeService.buildCube(cubeBlue);
 	}
 	
 	
 	public void testArrayRotate(){
+		
+		Queue<int[][]> result = new LinkedList<>();
+		
 		Cube cubeBlue = cubeFactory.getCube("blue");
-		Util.printTwoDimentionalArray(cubeBlue.getPiece3());
-		System.out.println("***rotate****");
-		Util.printTwoDimentionalArray(Util.rotate(cubeBlue.getPiece3()));
-		System.out.println("***flip****");
-		Util.printTwoDimentionalArray(Util.flip(cubeBlue.getPiece3()));
+		int[][] piece1 =cubeBlue.getPiece1();
+		result.add(piece1);
+		int[][] piece1Rotated = Util.rotate(cubeBlue.getPiece1());
+		System.out.println(result.contains(piece1Rotated));
 	}
 
 }

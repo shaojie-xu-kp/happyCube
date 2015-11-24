@@ -3,10 +3,10 @@ package it.shaojiexu.www.service;
 import it.shaojiexu.www.model.Cube;
 import it.shaojiexu.www.util.Util;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
-import java.util.Queue;
 
 import javax.annotation.PostConstruct;
 
@@ -17,32 +17,25 @@ public class CubeService {
 	
 	private Map<Integer, int[]> startIndexMap= new HashMap<>();
 	
-	private int[][] board = new int[17][13];
-//	
-//	private List<int[][]> matchedPieces;
-//	
-//	private int[][] solution = new int[20][15];
-	
 	@PostConstruct
 	private void init(){
-		startIndexMap.put(1, new int[]{0,4});
-		startIndexMap.put(2, new int[]{4,0});
-		startIndexMap.put(3, new int[]{4,4});
-		startIndexMap.put(4, new int[]{4,8});
-		startIndexMap.put(5, new int[]{8,4});
-		startIndexMap.put(6, new int[]{12,4});
+		startIndexMap.put(1, new int[]{0,0});
+		startIndexMap.put(2, new int[]{0,5});
+		startIndexMap.put(3, new int[]{0,10});
+		startIndexMap.put(4, new int[]{5,5});
+		startIndexMap.put(5, new int[]{10,5});
+		startIndexMap.put(6, new int[]{15,5});
 	}
 	
-	public boolean  putPiece(int[][] piece, int position, int times){
+	public boolean  putPiece(int[][] piece, int position, int times, int[][] board){
 		
 		if(times > 8) {
 			return false;
 		}
 		
-		int [][] testBoard = new int[17][13];
+		int [][] testBoard = new int[20][15];
 		this.copyArray(board, testBoard);
 		int[] startIndex = this.startIndexMap.get(position);
-		
 		
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
@@ -51,7 +44,7 @@ public class CubeService {
 		}
 		
 		if(isValid(testBoard,position)) {
-			board = testBoard;
+			this.copyArray(testBoard, board);
 			return true;
 		}else{
 			times++;
@@ -60,37 +53,42 @@ public class CubeService {
 			}else{
 				piece = Util.rotate(piece);
 			}
-			return putPiece(piece,  position, times);
+			return putPiece(piece,  position, times, board);
 			
 		}
 		
 	}
 	
-	public Queue<int[][]> buildCube(Cube cube){
+	
+	public void buildCube(Cube cube){
 		
-		Queue<int[][]> pieces = new LinkedList<>(cube.getPieces().values());
-		Queue<int[][]> results = new LinkedList<>();
+		List<String> permutations = new ArrayList<>();
+		Util.permutate("123456",permutations);
 		
-		for(int i = 1; i <= 6; i++) {
+		Map<Character, int[][]> pieces = cube.getPieces();
+		
+		for(String permutation : permutations){
 			
-			if( i > results.size() + 1) {
-				pieces.add(pieces.poll());
-				i--;
+			int[][] board = new int[20][15];
+			
+			boolean flag = true;
+			
+			for(int i = 0; i < 6; i++) {
+				flag = flag && this.putPiece(pieces.get(permutation.charAt(i)), i+1, 1, board);
 			}
 			
-			pieces.removeAll(results);
-			for(int[][] piece : pieces) {
-				if(this.putPiece(piece, i, 1)){
-					results.add(piece);
-					break;
-				}
+			if(flag && this.validate(board)) {
+				Util.printTwoDimentionalArray(board);
 			}
+			
 		}
 		
-		Util.printTwoDimentionalArray(board);
-		return results;
+		
 	}
 	
+	private boolean validate(int[][] board) {
+		return true;
+	}
 
 	private boolean isValid(int[][] board, int position) {
 		
@@ -101,7 +99,7 @@ public class CubeService {
 			}
 			
 		}
-				  
+		
 		return true;
 	}
 	
