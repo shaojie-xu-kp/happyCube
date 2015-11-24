@@ -45,9 +45,10 @@ public class HappyCubeApplicationTests {
 		Queue<int[][]> result = new LinkedList<>();
 		
 		Cube cubeBlue = cubeFactory.getCubeByColor("blue");
-		int[][] piece1 =cubeBlue.getPiece1();
+		int[][] piece1 =cubeBlue.getPieces().get('1');
+		System.out.println(Util.convertArrayToString(piece1));
 		result.add(piece1);
-		int[][] piece1Rotated = Util.rotate(cubeBlue.getPiece1());
+		int[][] piece1Rotated = Util.rotate(piece1);
 		System.out.println(result.contains(piece1Rotated));
 	}
 
