@@ -18,7 +18,7 @@ public class TestCubeFactory {
 	
 	@Test
 	public void testBlueGeneration() {
-		Cube cube = cubeFactory.getCube("BLUE");
+		Cube cube = cubeFactory.getCubeByColor("BLUE");
 		cube.getPieces().entrySet().forEach(entry -> {
 			int[][] piece = entry.getValue();
 			for(int i = 0; i < piece.length; i ++ )

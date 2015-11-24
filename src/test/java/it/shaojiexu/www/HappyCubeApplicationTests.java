@@ -27,7 +27,7 @@ public class HappyCubeApplicationTests {
 	@Test
 	public void testBuildCube(){
 //		int[][] board = new int[20][15];
-		Cube cubeBlue = cubeFactory.getCube("blue");
+		Cube cubeBlue = cubeFactory.getCubeByColor("red");
 //		this.cubeService.putPiece(cubeBlue.getPiece1(), 1, 1, board);
 //		this.cubeService.putPiece(Util.rotate(cubeBlue.getPiece2()), 5, 1, board);
 //		this.cubeService.putPiece(cubeBlue.getPiece3(), 6, 1, board);
@@ -44,7 +44,7 @@ public class HappyCubeApplicationTests {
 		
 		Queue<int[][]> result = new LinkedList<>();
 		
-		Cube cubeBlue = cubeFactory.getCube("blue");
+		Cube cubeBlue = cubeFactory.getCubeByColor("blue");
 		int[][] piece1 =cubeBlue.getPiece1();
 		result.add(piece1);
 		int[][] piece1Rotated = Util.rotate(cubeBlue.getPiece1());

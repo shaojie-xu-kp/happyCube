@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Util {
 	
-	public static void printTwoDimentionalArray(int[][] array){
+	public static String convertArrayToString(int[][] array){
 		
 		StringBuffer stf = new StringBuffer("");
 		
@@ -19,7 +19,7 @@ public class Util {
 			stf.append("\n");
 		}
 		
-		System.out.println(stf.toString());
+		return stf.toString();
 
 	}
 
@@ -63,6 +63,19 @@ public class Util {
 				permutate(prefix + s.charAt(i), s.substring(0, i) + s.substring(i + 1, N), perms);
 		}
 
+	}
+	
+	public static boolean arrayConstainsOnly0And1(int[][] board){
+		
+		for(int i=0; i<board.length; i++){
+			for(int j=0; j<board[i].length; j++){
+				if(board[i][j] > 1) 
+					return false;
+			}
+			
+		}
+		
+		return true;
 	}
 
 
