@@ -70,6 +70,7 @@ class CubeBuildRunner implements CommandLineRunner {
 			cubeFileWriter.flush();
 			cubeFileWriter.close();
 			
+			logger.info(String.format("solutions have been written to file %s", cubeFilePath + File.separator +cubeFileName));
 			logger.info(String.format("******* end building %s cube ************", cubeColor));
 
 		}catch (IOException e) {
