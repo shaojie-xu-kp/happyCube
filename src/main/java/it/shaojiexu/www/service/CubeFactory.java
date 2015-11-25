@@ -13,6 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CubeFactory {
 	
+	/**
+	 * factory to get the pieces of a cube based on the color
+	 * @param color
+	 * @return
+	 */
 	public Cube getCubeByColor(String color){
 		
 		switch(color.toUpperCase()) {

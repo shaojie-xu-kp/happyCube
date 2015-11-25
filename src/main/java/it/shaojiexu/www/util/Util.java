@@ -4,25 +4,28 @@ import java.util.List;
 
 public class Util {
 	
+	
 	public static String convertArrayToString(int[][] array){
-		
 		StringBuffer stf = new StringBuffer("");
-		
 		for(int i = 0 ; i < array.length; i++) {
 			for(int j = 0; j < array[i].length; j++) {
 				if(array[i][j] == 0) {
 					stf.append(" ");
 				}else{
-					stf.append("O");
+					stf.append("o");
 				}
 			}
 			stf.append("\n");
 		}
-		
 		return stf.toString();
-
 	}
 
+	
+	/**
+	 * flip the two dimensional array based on longitudinal axis
+	 * @param piece
+	 * @return
+	 */
 	public static int[][] flip(int[][] piece) {
 		
 		final int M = piece.length;
@@ -38,6 +41,11 @@ public class Util {
 		return ret;
 	}
 
+	/**
+	 * rotate the two dimensional array by 90 degree clockwise
+	 * @param piece
+	 * @return
+	 */
 	public static int[][] rotate(int[][] piece) {
 		final int M = piece.length;
 		final int N = piece[0].length;
@@ -50,10 +58,16 @@ public class Util {
 		return ret;
 	}
 	
+	/**
+	 * find out all the permutations of a string s
+	 * @param s
+	 * @param perms
+	 */
 	public static void permutate(String s, List<String> perms) {
 		permutate("", s, perms);
 	}
 
+	
 	private static void permutate(String prefix, String s, List<String> perms) {
 		int N = s.length();
 		if (N == 0)
@@ -65,6 +79,11 @@ public class Util {
 
 	}
 	
+	/**
+	 * verify if the array contains any other position number except 0, 1
+	 * @param board
+	 * @return
+	 */
 	public static boolean arrayConstainsOnly0And1(int[][] board){
 		
 		for(int i=0; i<board.length; i++){
