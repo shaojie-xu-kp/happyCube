@@ -36,7 +36,7 @@ public class HappyCubeApplicationTests {
 	@Test
 	public void testArrayRotate(){
 		
-		Cube cubeBlue = cubeFactory.getCubeByColor("yellow");
+		Cube cubeBlue = cubeFactory.getCubeByColor("blue");
 		int[][] piece1 =cubeBlue.getPieces().get(2);
 		System.out.println(Util.convertArrayToString(piece1));
 		int[][] piece1Rotated = Util.rotate(piece1);

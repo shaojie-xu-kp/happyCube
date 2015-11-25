@@ -4,7 +4,7 @@ import it.shaojiexu.www.model.Cube;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Queue;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -209,9 +209,9 @@ interface CubePiece {
 	};
 
 
-	Queue<int[][]> yellowCubePieces = new LinkedList<>(Arrays.asList(yellowPiece1,yellowPiece2,yellowPiece3,yellowPiece4,yellowPiece5,yellowPiece6));
-	Queue<int[][]> blueCubePieces = new LinkedList<>(Arrays.asList(bluePiece1,bluePiece2,bluePiece3,bluePiece4,bluePiece5,bluePiece6));
-	Queue<int[][]> redCubePieces = new LinkedList<>(Arrays.asList(redPiece1,redPiece2,redPiece3,redPiece4,redPiece5,redPiece6));
-	Queue<int[][]> purpleCubePieces = new LinkedList<>(Arrays.asList(purplePiece1,purplePiece2,purplePiece3,purplePiece4,purplePiece5,purplePiece6));
+	List<int[][]> yellowCubePieces = new LinkedList<>(Arrays.asList(yellowPiece1,yellowPiece2,yellowPiece3,yellowPiece4,yellowPiece5,yellowPiece6));
+	List<int[][]> blueCubePieces = new LinkedList<>(Arrays.asList(bluePiece1,bluePiece2,bluePiece3,bluePiece4,bluePiece5,bluePiece6));
+	List<int[][]> redCubePieces = new LinkedList<>(Arrays.asList(redPiece1,redPiece2,redPiece3,redPiece4,redPiece5,redPiece6));
+	List<int[][]> purpleCubePieces = new LinkedList<>(Arrays.asList(purplePiece1,purplePiece2,purplePiece3,purplePiece4,purplePiece5,purplePiece6));
 
 }
