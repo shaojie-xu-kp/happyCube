@@ -17,6 +17,10 @@ public class Cube {
 		}
 		
 	}
+	
+	public Cube(){
+		
+	}
 
 	public Map<Integer, int[][]> getPieces() {
 		return pieces;

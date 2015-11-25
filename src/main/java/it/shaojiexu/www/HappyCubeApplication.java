@@ -1,6 +1,7 @@
 package it.shaojiexu.www;
 
 import it.shaojiexu.www.model.Cube;
+import it.shaojiexu.www.model.CubeColor;
 import it.shaojiexu.www.model.CubeSolution;
 import it.shaojiexu.www.service.CubeFactory;
 import it.shaojiexu.www.service.CubeService;
@@ -52,6 +53,8 @@ class CubeBuildRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
+		preconditionCheck();
+		
 		Cube cubeBlue = cubeFactory.getCubeByColor(cubeColor);
 		List<CubeSolution> solutions = this.cubeService.buildCube(cubeBlue);
 		
@@ -79,6 +82,22 @@ class CubeBuildRunner implements CommandLineRunner {
 		}
 		
 	}
+
+	private void preconditionCheck() {
+		
+		boolean unmatchedString = true;
+		
+		for(CubeColor color :CubeColor.values()){
+			if(color.toString().equals(cubeColor.toUpperCase())){
+				unmatchedString = false;
+			}
+		}
+		
+		if(unmatchedString) throw new AssertionError(String.format("The allowed value for cube color are in [blue, red, yellow, purple], %s is not a valid color", cubeColor));
+		
+	}
+	
+	
 	
 	
 }
