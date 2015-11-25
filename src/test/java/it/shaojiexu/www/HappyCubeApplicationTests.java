@@ -1,7 +1,7 @@
 package it.shaojiexu.www;
 
 import it.shaojiexu.www.model.Cube;
-import it.shaojiexu.www.model.CubeFactory;
+import it.shaojiexu.www.service.CubeFactory;
 import it.shaojiexu.www.service.CubeService;
 import it.shaojiexu.www.util.Util;
 
@@ -27,7 +27,7 @@ public class HappyCubeApplicationTests {
 	@Test
 	public void testBuildCube(){
 //		int[][] board = new int[20][15];
-		Cube cubeBlue = cubeFactory.getCubeByColor("red");
+		Cube cubeBlue = cubeFactory.getCubeByColor("purple");
 //		this.cubeService.putPiece(cubeBlue.getPiece1(), 1, 1, board);
 //		this.cubeService.putPiece(Util.rotate(cubeBlue.getPiece2()), 5, 1, board);
 //		this.cubeService.putPiece(cubeBlue.getPiece3(), 6, 1, board);

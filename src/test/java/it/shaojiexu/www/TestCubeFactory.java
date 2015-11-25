@@ -1,7 +1,7 @@
 package it.shaojiexu.www;
 
 import it.shaojiexu.www.model.Cube;
-import it.shaojiexu.www.model.CubeFactory;
+import it.shaojiexu.www.service.CubeFactory;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
