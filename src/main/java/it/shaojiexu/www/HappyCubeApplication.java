@@ -4,6 +4,7 @@ import it.shaojiexu.www.model.Cube;
 import it.shaojiexu.www.model.CubeSolution;
 import it.shaojiexu.www.service.CubeFactory;
 import it.shaojiexu.www.service.CubeService;
+import it.shaojiexu.www.util.Util;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -64,7 +65,7 @@ class CubeBuildRunner implements CommandLineRunner {
 				String output = String.format("Solution %d for %s cube : %s", i+1, cubeColor, solutions.get(i).toString());
 				logger.info(output);
 				cubeFileWriter.append(output);
-				cubeFileWriter.append("\n");
+				cubeFileWriter.append(Util.NEW_LINE);
 			}
 			
 			cubeFileWriter.flush();

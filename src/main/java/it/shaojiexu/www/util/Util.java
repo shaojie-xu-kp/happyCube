@@ -4,18 +4,23 @@ import java.util.List;
 
 public class Util {
 	
+	public static final String ENCODING_SYMBOL = "o";
+	
+	public static final String NEW_LINE = "\n";
+	
+	public static final String EMPTY_SPACE = " ";
 	
 	public static String convertArrayToString(int[][] array){
 		StringBuffer stf = new StringBuffer("");
 		for(int i = 0 ; i < array.length; i++) {
 			for(int j = 0; j < array[i].length; j++) {
 				if(array[i][j] == 0) {
-					stf.append(" ");
+					stf.append(EMPTY_SPACE);
 				}else{
-					stf.append("o");
+					stf.append(ENCODING_SYMBOL);
 				}
 			}
-			stf.append("\n");
+			stf.append(NEW_LINE);
 		}
 		return stf.toString();
 	}
