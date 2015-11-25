@@ -1,0 +1,44 @@
+Solution 1 for blue cube : Non-Adjacent Face Pairs: {[1, 3],[4, 5],[6, 2]} :
+  o   o o   o  
+ ooo oooo oooo 
+ooooo oooo oooo
+ ooo oooo oooo 
+  o  oo o   o  
+       o o     
+     ooooo     
+      ooo      
+     ooooo     
+      o oo     
+     o o       
+     ooooo     
+      ooo      
+     ooooo     
+      o o      
+     o o o     
+     ooooo     
+      ooo      
+     ooooo     
+     o o o     
+
+Solution 2 for blue cube : Non-Adjacent Face Pairs: {[1, 3],[5, 6],[4, 2]} :
+  o   o o   o  
+ ooo ooooo oooo
+ooooo ooo oooo 
+ ooo ooooo oooo
+  o  o o    o  
+      o oo     
+     ooooo     
+      ooo      
+     ooooo     
+       o       
+     oo oo     
+     oooo      
+      oooo     
+     oooo      
+      o o      
+     o o o     
+     ooooo     
+      ooo      
+     ooooo     
+     o o o     
+
